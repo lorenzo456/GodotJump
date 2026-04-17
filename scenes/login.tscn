@@ -1,0 +1,54 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/background.gd" id="1_bg"]
+[ext_resource type="Script" path="res://scripts/login.gd" id="2_login"]
+
+[node name="Login" type="Node2D"]
+script = ExtResource("2_login")
+
+[node name="Background" type="Node2D" parent="."]
+script = ExtResource("1_bg")
+
+[node name="Sprite1" type="Sprite2D" parent="Background"]
+
+[node name="Sprite2" type="Sprite2D" parent="Background"]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="HUD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/CenterContainer"]
+theme_override_constants/separation = 20
+custom_minimum_size = Vector2(400, 0)
+
+[node name="TitleLabel" type="Label" parent="HUD/CenterContainer/VBoxContainer"]
+text = "Sign In to Ludo Health"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 42
+theme_override_colors/font_color = Color(0.15, 0.1, 0.05, 1)
+
+[node name="EmailField" type="LineEdit" parent="HUD/CenterContainer/VBoxContainer"]
+placeholder_text = "Email"
+theme_override_font_sizes/font_size = 24
+
+[node name="PasswordField" type="LineEdit" parent="HUD/CenterContainer/VBoxContainer"]
+placeholder_text = "Password"
+secret = true
+theme_override_font_sizes/font_size = 24
+
+[node name="LoginButton" type="Button" parent="HUD/CenterContainer/VBoxContainer"]
+text = "Sign In"
+theme_override_font_sizes/font_size = 28
+
+[node name="StatusLabel" type="Label" parent="HUD/CenterContainer/VBoxContainer"]
+text = ""
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.85, 0.15, 0.1, 1)
+autowrap_mode = 3
+
+[node name="BackButton" type="Button" parent="HUD/CenterContainer/VBoxContainer"]
+text = "Back"
+theme_override_font_sizes/font_size = 24

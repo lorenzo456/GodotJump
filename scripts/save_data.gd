@@ -30,6 +30,9 @@ var coins: int = 0
 var high_score: int = 0
 var owned_items: Dictionary = {}
 var equipped_item: String = ""
+var auth_token: String = ""
+var player_first_name: String = ""
+var player_email: String = ""
 
 func _ready() -> void:
 	_load()
@@ -63,12 +66,30 @@ func unequip() -> void:
 	equipped_item = ""
 	_save()
 
+func is_signed_in() -> bool:
+	return auth_token != ""
+
+func sign_in(token: String, first_name: String, email: String) -> void:
+	auth_token = token
+	player_first_name = first_name
+	player_email = email
+	_save()
+
+func sign_out() -> void:
+	auth_token = ""
+	player_first_name = ""
+	player_email = ""
+	_save()
+
 func _save() -> void:
 	var cfg := ConfigFile.new()
 	cfg.set_value("player", "coins", coins)
 	cfg.set_value("player", "high_score", high_score)
 	cfg.set_value("player", "owned_items", owned_items)
 	cfg.set_value("player", "equipped_item", equipped_item)
+	cfg.set_value("auth", "token", auth_token)
+	cfg.set_value("auth", "first_name", player_first_name)
+	cfg.set_value("auth", "email", player_email)
 	var err := cfg.save(SAVE_PATH)
 	if err != OK:
 		push_error("SaveData: failed to save (%s)" % error_string(err))
@@ -82,3 +103,6 @@ func _load() -> void:
 	equipped_item = cfg.get_value("player", "equipped_item", "")
 	var raw = cfg.get_value("player", "owned_items", {})
 	owned_items = raw if raw is Dictionary else {}
+	auth_token = cfg.get_value("auth", "token", "")
+	player_first_name = cfg.get_value("auth", "first_name", "")
+	player_email = cfg.get_value("auth", "email", "")

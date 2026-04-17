@@ -42,6 +42,17 @@ theme_override_font_sizes/font_size = 32
 text = "Shop"
 theme_override_font_sizes/font_size = 32
 
+[node name="LudoHealthButton" type="Button" parent="HUD/CenterContainer/VBoxContainer"]
+text = "Sign In to Ludo Health"
+theme_override_font_sizes/font_size = 32
+
+[node name="AuthStatusLabel" type="Label" parent="HUD/CenterContainer/VBoxContainer"]
+text = ""
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.15, 0.1, 0.05, 1)
+visible = false
+
 [node name="ExitButton" type="Button" parent="HUD/CenterContainer/VBoxContainer"]
 text = "Exit Game"
 theme_override_font_sizes/font_size = 32

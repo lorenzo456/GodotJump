@@ -77,7 +77,7 @@ func _create_tile(item: Dictionary) -> PanelContainer:
 	var buy_btn := Button.new()
 	buy_btn.text = "Buy"
 	buy_btn.disabled = not can_afford
-	buy_btn.pressed.connect(func(): _on_buy(item["id"], item["cost"]))
+	buy_btn.pressed.connect(func(): _on_buy(item["id"], item["cost"], item["name"]))
 	hbox.add_child(buy_btn)
 
 	var equip_btn := Button.new()
@@ -89,10 +89,32 @@ func _create_tile(item: Dictionary) -> PanelContainer:
 
 	return panel
 
-func _on_buy(item_id: String, cost: int) -> void:
+func _on_buy(item_id: String, cost: int, item_name: String) -> void:
 	if SaveData.buy_item(item_id, cost):
 		_refresh()
+		if SaveData.is_signed_in():
+			_post_purchase_activity(cost, item_name)
 
 func _on_equip(item_id: String) -> void:
 	SaveData.equip_item(item_id)
 	_refresh()
+
+func _post_purchase_activity(cost: int, item_name: String) -> void:
+	var http := HTTPRequest.new()
+	add_child(http)
+	http.request_completed.connect(func(_r, _c, _h, _b): http.queue_free())
+
+	var body := JSON.stringify({
+		"activity_type_id": 4,
+		"source": "godot_jump",
+		"points": -cost,
+		"properties": [
+			{"activity_property_id": 7, "value": cost},
+			{"activity_property_id": 8, "value": "bought " + item_name.to_lower()},
+		]
+	})
+	var headers := [
+		"Content-Type: application/json",
+		"Authorization: Bearer " + SaveData.auth_token,
+	]
+	http.request("http://127.0.0.1:5000/activities", headers, HTTPClient.METHOD_POST, body)

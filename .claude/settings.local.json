@@ -15,7 +15,8 @@
       "Bash(sed -i 's|res://obstacle.gd|res://scripts/obstacle.gd|g' C:/Users/loren/Documents/godot-jump/scripts/obstacle_spawner.gd)",
       "Bash(sed -i 's|res://gameplay.tscn|res://scenes/gameplay.tscn|g; s|res://main_menu.tscn|res://scenes/main_menu.tscn|g; s|res://shop.tscn|res://scenes/shop.tscn|g' C:/Users/loren/Documents/godot-jump/scripts/main_menu.gd)",
       "Bash(sed -i 's|res://main_menu.tscn|res://scenes/main_menu.tscn|g' C:/Users/loren/Documents/godot-jump/scripts/game_over_screen.gd)",
-      "Bash(grep -h \"res://\" C:/Users/loren/Documents/godot-jump/scripts/*.gd)"
+      "Bash(grep -h \"res://\" C:/Users/loren/Documents/godot-jump/scripts/*.gd)",
+      "Bash(python -c ' *)"
     ]
   }
 }
