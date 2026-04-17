@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brsxioec0dmai"
-path="res://.godot/imported/background_fade_mushrooms.png-4a6d8751f88b2e48d2d1f65610c26807.ctex"
+uid="uid://dqj4i3olw1snq"
+path="res://.godot/imported/background_fade_mushrooms.png-1c774f99c9048a0ead475022498ed094.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://backgrounds/background_fade_mushrooms.png"
-dest_files=["res://.godot/imported/background_fade_mushrooms.png-4a6d8751f88b2e48d2d1f65610c26807.ctex"]
+source_file="res://assets/backgrounds/background_fade_mushrooms.png"
+dest_files=["res://.godot/imported/background_fade_mushrooms.png-1c774f99c9048a0ead475022498ed094.ctex"]
 
 [params]
 

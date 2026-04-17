@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qptyifhljxl8"
-path="res://.godot/imported/block_spikes.png-ea853510386b0752b616f01aa4dbde0a.ctex"
+uid="uid://buwofufddsbkc"
+path="res://.godot/imported/background_fade_trees.png-cd6b2d6950ba0b7a4a3c38f01e8afdc0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://obstacles/block_spikes.png"
-dest_files=["res://.godot/imported/block_spikes.png-ea853510386b0752b616f01aa4dbde0a.ctex"]
+source_file="res://assets/backgrounds/background_fade_trees.png"
+dest_files=["res://.godot/imported/background_fade_trees.png-cd6b2d6950ba0b7a4a3c38f01e8afdc0.ctex"]
 
 [params]
 

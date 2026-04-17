@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://bn31fm7xbyelo"]
+[gd_scene format=3 uid="uid://bote2da1li348"]
 
 [ext_resource type="Texture2D" uid="uid://kjtslelr7mlj" path="res://icon.svg" id="1_n4psk"]
-[ext_resource type="Script" path="res://playermovement.gd" id="2_ej4tk"]
-[ext_resource type="Script" path="res://background.gd" id="4_bg"]
-[ext_resource type="Script" path="res://obstacle_spawner.gd" id="5_spawner"]
-[ext_resource type="Script" path="res://game_over_screen.gd" id="6_gameover"]
+[ext_resource type="Script" uid="uid://bpk8yxjek0xwk" path="res://scripts/playermovement.gd" id="2_ej4tk"]
+[ext_resource type="Script" uid="uid://cflni4xxfi7md" path="res://scripts/background.gd" id="4_bg"]
+[ext_resource type="Script" uid="uid://dp1go6muf06lw" path="res://scripts/obstacle_spawner.gd" id="5_spawner"]
+[ext_resource type="Script" uid="uid://cyj3p6ebhq2us" path="res://scripts/game_over_screen.gd" id="6_gameover"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1"]
 radius = 26.019224

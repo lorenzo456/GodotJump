@@ -12,7 +12,7 @@ var tex_width: float
 func _ready() -> void:
 	_load_textures()
 	if textures.is_empty():
-		push_error("No PNG files found in res://backgrounds/")
+		push_error("No PNG files found in res://assets/backgrounds/")
 		return
 
 	var viewport_size = get_viewport_rect().size
@@ -32,10 +32,10 @@ func _ready() -> void:
 	next_index = 2 % textures.size()
 
 func _load_textures() -> void:
-	var files = DirAccess.get_files_at("res://backgrounds/")
+	var files = DirAccess.get_files_at("res://assets/backgrounds/")
 	for file in files:
 		if file.ends_with(".png"):
-			var tex: Texture2D = load("res://backgrounds/" + file)
+			var tex: Texture2D = load("res://assets/backgrounds/" + file)
 			if tex != null:
 				textures.append(tex)
 

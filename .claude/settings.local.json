@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv background.gd background.gd.uid game_over_screen.gd game_over_screen.gd.uid main_menu.gd main_menu.gd.uid obstacle.gd obstacle.gd.uid obstacle_spawner.gd obstacle_spawner.gd.uid playermovement.gd playermovement.gd.uid save_data.gd save_data.gd.uid shop.gd shop.gd.uid scripts/)",
+      "Bash(mv gameplay.tscn main_menu.tscn shop.tscn scenes/)",
+      "Bash(mv backgrounds/*.png assets/backgrounds/)",
+      "Bash(mv obstacles/*.png assets/obstacles/)",
+      "Bash(rm -f backgrounds/*.import obstacles/*.import)",
+      "Bash(sed -i 's|path=\"res://background.gd\"|path=\"res://scripts/background.gd\"|g' C:/Users/loren/Documents/godot-jump/scenes/main_menu.tscn)",
+      "Bash(sed -i 's|path=\"res://main_menu.gd\"|path=\"res://scripts/main_menu.gd\"|g' C:/Users/loren/Documents/godot-jump/scenes/main_menu.tscn)",
+      "Bash(sed -i 's|path=\"res://background.gd\"|path=\"res://scripts/background.gd\"|g' C:/Users/loren/Documents/godot-jump/scenes/shop.tscn)",
+      "Bash(sed -i 's|path=\"res://shop.gd\"|path=\"res://scripts/shop.gd\"|g' C:/Users/loren/Documents/godot-jump/scenes/shop.tscn)",
+      "Bash(sed -i 's|res://backgrounds/|res://assets/backgrounds/|g' C:/Users/loren/Documents/godot-jump/scripts/background.gd)",
+      "Bash(sed -i 's|res://obstacles/block_spikes.png|res://assets/obstacles/block_spikes.png|g' C:/Users/loren/Documents/godot-jump/scripts/obstacle.gd)",
+      "Bash(sed -i 's|res://obstacle.gd|res://scripts/obstacle.gd|g' C:/Users/loren/Documents/godot-jump/scripts/obstacle_spawner.gd)",
+      "Bash(sed -i 's|res://gameplay.tscn|res://scenes/gameplay.tscn|g; s|res://main_menu.tscn|res://scenes/main_menu.tscn|g; s|res://shop.tscn|res://scenes/shop.tscn|g' C:/Users/loren/Documents/godot-jump/scripts/main_menu.gd)",
+      "Bash(sed -i 's|res://main_menu.tscn|res://scenes/main_menu.tscn|g' C:/Users/loren/Documents/godot-jump/scripts/game_over_screen.gd)",
+      "Bash(grep -h \"res://\" C:/Users/loren/Documents/godot-jump/scripts/*.gd)"
+    ]
+  }
+}

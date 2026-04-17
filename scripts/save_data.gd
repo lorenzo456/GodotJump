@@ -28,7 +28,6 @@ const ITEMS = [
 
 var coins: int = 0
 var high_score: int = 0
-# Dictionary of item_id -> quantity owned
 var owned_items: Dictionary = {}
 var equipped_item: String = ""
 
@@ -70,7 +69,9 @@ func _save() -> void:
 	cfg.set_value("player", "high_score", high_score)
 	cfg.set_value("player", "owned_items", owned_items)
 	cfg.set_value("player", "equipped_item", equipped_item)
-	cfg.save(SAVE_PATH)
+	var err := cfg.save(SAVE_PATH)
+	if err != OK:
+		push_error("SaveData: failed to save (%s)" % error_string(err))
 
 func _load() -> void:
 	var cfg := ConfigFile.new()

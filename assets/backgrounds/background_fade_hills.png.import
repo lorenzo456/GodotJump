@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq8nhokqy0kix"
-path="res://.godot/imported/background_fade_hills.png-81918c70e5bbb143aaaed1d3a7ab0641.ctex"
+uid="uid://cxspmvt2m0cys"
+path="res://.godot/imported/background_fade_hills.png-d84b829cc2397e897f66535407deacbe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://backgrounds/background_fade_hills.png"
-dest_files=["res://.godot/imported/background_fade_hills.png-81918c70e5bbb143aaaed1d3a7ab0641.ctex"]
+source_file="res://assets/backgrounds/background_fade_hills.png"
+dest_files=["res://.godot/imported/background_fade_hills.png-d84b829cc2397e897f66535407deacbe.ctex"]
 
 [params]
 
