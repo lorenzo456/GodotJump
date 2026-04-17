@@ -1,0 +1,47 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://background.gd" id="1_bg"]
+[ext_resource type="Script" path="res://main_menu.gd" id="2_menu"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("2_menu")
+
+[node name="Background" type="Node2D" parent="."]
+script = ExtResource("1_bg")
+
+[node name="Sprite1" type="Sprite2D" parent="Background"]
+
+[node name="Sprite2" type="Sprite2D" parent="Background"]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="HUD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/CenterContainer"]
+theme_override_constants/separation = 30
+
+[node name="TitleLabel" type="Label" parent="HUD/CenterContainer/VBoxContainer"]
+text = "GODOT JUMP"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 72
+theme_override_colors/font_color = Color(0.15, 0.1, 0.05, 1)
+
+[node name="HighScoreLabel" type="Label" parent="HUD/CenterContainer/VBoxContainer"]
+text = "Best: 0"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(0.15, 0.1, 0.05, 1)
+
+[node name="StartButton" type="Button" parent="HUD/CenterContainer/VBoxContainer"]
+text = "Start Game"
+theme_override_font_sizes/font_size = 32
+
+[node name="ShopButton" type="Button" parent="HUD/CenterContainer/VBoxContainer"]
+text = "Shop"
+theme_override_font_sizes/font_size = 32
+
+[node name="ExitButton" type="Button" parent="HUD/CenterContainer/VBoxContainer"]
+text = "Exit Game"
+theme_override_font_sizes/font_size = 32
