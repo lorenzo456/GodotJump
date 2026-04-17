@@ -15,6 +15,7 @@ func _ready() -> void:
 func _on_game_over() -> void:
 	var score: int = get_tree().get_root().get_node("World/ObstacleSpawner").score
 	SaveData.update_high_score(score)
+	SaveData.consume_equipped_item()
 	final_score_label.text = "Score: " + str(score)
 	show()
 	get_tree().paused = true

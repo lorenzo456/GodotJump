@@ -1,6 +1,7 @@
 extends Node2D
 
-const SCROLL_SPEED = 60.0
+const BASE_SCROLL_SPEED = 60.0
+var scroll_speed: float
 
 @onready var sprite1: Sprite2D = $Sprite1
 @onready var sprite2: Sprite2D = $Sprite2
@@ -10,6 +11,7 @@ var next_index: int = 0
 var tex_width: float
 
 func _ready() -> void:
+	scroll_speed = BASE_SCROLL_SPEED * (1.3 if SaveData.equipped_item == "movement_speed" else 1.0)
 	_load_textures()
 	if textures.is_empty():
 		push_error("No PNG files found in res://assets/backgrounds/")
@@ -43,8 +45,8 @@ func _process(delta: float) -> void:
 	if textures.is_empty():
 		return
 
-	sprite1.position.x -= SCROLL_SPEED * delta
-	sprite2.position.x -= SCROLL_SPEED * delta
+	sprite1.position.x -= scroll_speed * delta
+	sprite2.position.x -= scroll_speed * delta
 
 	# Use elif so both can't recycle in the same frame
 	if sprite1.position.x + tex_width / 2.0 < 0.0:

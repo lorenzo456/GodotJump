@@ -42,29 +42,40 @@ func get_stock(item_id: String) -> int:
 
 func add_coins(amount: int) -> void:
 	coins += amount
-	_save()
+	save()
 
 func update_high_score(score: int) -> void:
 	if score > high_score:
 		high_score = score
-		_save()
+		save()
 
 func buy_item(item_id: String, cost: int) -> bool:
 	if coins < cost:
 		return false
 	coins -= cost
 	owned_items[item_id] = owned_items.get(item_id, 0) + 1
-	_save()
+	save()
 	return true
 
 func equip_item(item_id: String) -> void:
 	if owned_items.get(item_id, 0) > 0:
 		equipped_item = item_id
-		_save()
+		save()
 
 func unequip() -> void:
 	equipped_item = ""
-	_save()
+	save()
+
+func consume_equipped_item() -> void:
+	if equipped_item == "":
+		return
+	var stock: int = owned_items.get(equipped_item, 0)
+	if stock <= 0:
+		return
+	owned_items[equipped_item] = stock - 1
+	if owned_items[equipped_item] == 0:
+		equipped_item = ""
+	save()
 
 func is_signed_in() -> bool:
 	return auth_token != ""
@@ -73,15 +84,15 @@ func sign_in(token: String, first_name: String, email: String) -> void:
 	auth_token = token
 	player_first_name = first_name
 	player_email = email
-	_save()
+	save()
 
 func sign_out() -> void:
 	auth_token = ""
 	player_first_name = ""
 	player_email = ""
-	_save()
+	save()
 
-func _save() -> void:
+func save() -> void:
 	var cfg := ConfigFile.new()
 	cfg.set_value("player", "coins", coins)
 	cfg.set_value("player", "high_score", high_score)

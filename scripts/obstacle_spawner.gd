@@ -1,6 +1,7 @@
 extends Node2D
 
-const SCROLL_SPEED = 150.0
+const BASE_SCROLL_SPEED = 150.0
+var scroll_speed: float
 const GAP_SIZE = 220.0
 const EDGE_PADDING = 80.0
 const MIN_INTERVAL = 2.5
@@ -17,6 +18,7 @@ var player_x: float
 @onready var score_label: Label = get_parent().get_node("HUD/ScoreLabel")
 
 func _ready() -> void:
+	scroll_speed = BASE_SCROLL_SPEED * (1.3 if SaveData.equipped_item == "movement_speed" else 1.0)
 	player_x = get_parent().get_node("Player").position.x
 	_reset_timer()
 
@@ -28,7 +30,7 @@ func _process(delta: float) -> void:
 
 	var to_remove: Array = []
 	for obs in active_obstacles:
-		obs.position.x -= SCROLL_SPEED * delta
+		obs.position.x -= scroll_speed * delta
 
 		if not obs.scored and obs.position.x + obs.pipe_width < player_x:
 			obs.scored = true

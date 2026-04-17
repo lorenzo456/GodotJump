@@ -54,4 +54,4 @@ func _on_score_fetched(result: int, response_code: int, _headers: PackedStringAr
 	var data = json.get_data()
 	if data is Dictionary and data.has("score"):
 		SaveData.coins = data["score"]
-		SaveData._save()
+		SaveData.save()

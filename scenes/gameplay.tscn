@@ -5,11 +5,13 @@
 [ext_resource type="Script" uid="uid://cflni4xxfi7md" path="res://scripts/background.gd" id="4_bg"]
 [ext_resource type="Script" uid="uid://dp1go6muf06lw" path="res://scripts/obstacle_spawner.gd" id="5_spawner"]
 [ext_resource type="Script" uid="uid://cyj3p6ebhq2us" path="res://scripts/game_over_screen.gd" id="6_gameover"]
+[ext_resource type="Script" path="res://scripts/gameplay.gd" id="7_gameplay"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1"]
 radius = 26.019224
 
 [node name="World" type="Node2D" unique_id=460267708]
+script = ExtResource("7_gameplay")
 
 [node name="Background" type="Node2D" parent="." unique_id=2044612471]
 script = ExtResource("4_bg")
