@@ -1,6 +1,6 @@
 extends Node2D
 
-const API_URL = "http://127.0.0.1:5000/auth/login"
+const API_URL = "https://web-production-538cd.up.railway.app/auth/login"
 
 @onready var email_field: LineEdit = $HUD/CenterContainer/VBoxContainer/EmailField
 @onready var password_field: LineEdit = $HUD/CenterContainer/VBoxContainer/PasswordField

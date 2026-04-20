@@ -1,6 +1,6 @@
 extends Node2D
 
-const SCORE_URL = "http://127.0.0.1:5000/players/me/score"
+const SCORE_URL = "https://web-production-538cd.up.railway.app/players/me/score"
 
 @onready var high_score_label: Label = $HUD/CenterContainer/VBoxContainer/HighScoreLabel
 @onready var start_button: Button = $HUD/CenterContainer/VBoxContainer/StartButton

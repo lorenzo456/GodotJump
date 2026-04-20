@@ -117,4 +117,4 @@ func _post_purchase_activity(cost: int, item_name: String) -> void:
 		"Content-Type: application/json",
 		"Authorization: Bearer " + SaveData.auth_token,
 	]
-	http.request("http://127.0.0.1:5000/activities", headers, HTTPClient.METHOD_POST, body)
+	http.request("https://web-production-538cd.up.railway.app/activities", headers, HTTPClient.METHOD_POST, body)
