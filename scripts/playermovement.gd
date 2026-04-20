@@ -15,6 +15,7 @@ var _lives: int = 1
 var _invincible: bool = false
 var _invincibility_timer: float = 0.0
 var _blink_timer: float = 0.0
+var _jump_requested: bool = false
 
 @onready var _sprite: Sprite2D = $Sprite2D
 
@@ -23,6 +24,14 @@ func _ready() -> void:
 	_jump_force = JUMP_FORCE_SHORT if SaveData.equipped_item == "shortened_jump" else JUMP_FORCE
 	if SaveData.equipped_item == "double_lives":
 		_lives = 2
+
+func _input(event: InputEvent) -> void:
+	if dead:
+		return
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		_jump_requested = true
+	elif event is InputEventScreenTouch and event.pressed:
+		_jump_requested = true
 
 func _physics_process(delta: float) -> void:
 	if dead:
@@ -40,8 +49,9 @@ func _physics_process(delta: float) -> void:
 
 	velocity.y += GRAVITY * delta
 
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept") or _jump_requested:
 		velocity.y = _jump_force
+		_jump_requested = false
 
 	move_and_slide()
 
